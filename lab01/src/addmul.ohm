@@ -1,3 +1,14 @@
 AddMul {
- // Write the rules here
+
+Sum = Sum "+" Mul -- plus
+  | Mul
+
+Mul = Mul "*" Atom -- mul
+  | Atom
+
+Atom = "(" Sum ")" -- braces
+  | number
+
+number = digit+
+
 }
