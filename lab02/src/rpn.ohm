@@ -1,3 +1,6 @@
 ReversePolishNotation {
-    // write rules here
+	Expr = Expr Expr "+" --sum
+    | Expr Expr "*" --mul
+    | number
+    number = digit+
 }
