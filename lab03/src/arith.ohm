@@ -1,3 +1,19 @@
 Arithmetic {
-    // write rules here
+    Expr = AddExp
+
+    AddExp = MulExp (("+" | "-") MulExp)*
+
+    MulExp = AtomExp (("*" | "/") AtomExp)*
+
+    AtomExp = number    -- number
+        | variable      -- variable
+        | "-" AtomExp   -- un_minus
+        | "(" Expr ")"  -- paren
+
+    variable = letter (letter | digit)*
+
+    non_zero_int = "1".."9" digit*
+    integer = non_zero_int | "0"
+    number = integer "." digit+ -- float
+        | integer               -- int
 }
