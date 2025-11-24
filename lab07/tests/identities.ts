@@ -24,8 +24,12 @@ export const commutativeIdentities = () => [
 export const toughIdentities = () => [
     ...commutativeIdentities(),
     ...distributiveIdentities(),
-    ...regroupIdentities()
-]
+    ...regroupIdentities(),
+    ...parseIdentities([
+        ["x+y-y", "x"],
+    ]),
+];
+
 
 const distributiveIdentities = () => parseIdentities([
     ["a*(b+c)", "a*b + a*c"],
